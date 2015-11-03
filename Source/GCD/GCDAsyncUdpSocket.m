@@ -4037,7 +4037,9 @@ enum GCDAsyncUdpSocketConfig
 	}
 	else // done
 	{
-		[self notifyDidSendDataWithTag:currentSend->tag];
+        if (currentSend != nil) {
+            [self notifyDidSendDataWithTag:currentSend->tag];
+        }
 		[self endCurrentSend];
 		[self maybeDequeueSend];
 	}
